@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ایرانیان | راهنمای انتخاب تردمیل و دوچرخه</title>
+<meta name="description" content="با وزن خودت و اندازه‌ی جای خانه‌ات، تردمیل، دوچرخه یا الپتیکال مناسب را پیدا کن، دو مدل را کنار هم مقایسه کن و قسطش را حساب کن. فروشگاه لوازم ورزشی ایرانیان، ساری.">
+<style>
+@font-face{font-family:Lahzeh;src:url(fonts/lahzeh-light.ttf) format("truetype");font-weight:300;font-display:swap}
+@font-face{font-family:Lahzeh;src:url(fonts/lahzeh-regular.ttf) format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:Lahzeh;src:url(fonts/lahzeh-medium.ttf) format("truetype");font-weight:500;font-display:swap}
+@font-face{font-family:Lahzeh;src:url(fonts/lahzeh-bold.ttf) format("truetype");font-weight:700;font-display:swap}
+@font-face{font-family:Lahzeh;src:url(fonts/lahzeh-black.ttf) format("truetype");font-weight:900;font-display:swap}
+@font-face{font-family:LahzehX;src:url(fonts/lahzeh-blackexstretch.ttf) format("truetype");font-weight:900;font-display:swap}
+
+/* معنای رنگ‌ها: قرمز = «اینجا را ببین / اقدام کن» (رنگ برند)، جوهر = متن، کاغذ = فضای منفی */
+:root{
+  --paper:#F5F1EA; --paper-2:#ECE6DB; --ink:#141414; --ink-2:#55514B; --line:#D9D1C3;
+  --red:#E1251B; --red-ink:#B81C14; --ok:#1F7A4D; --warn:#A86A00;
+  --r:18px; --gut:clamp(16px,4vw,56px); --max:1240px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:Lahzeh,Tahoma,sans-serif;font-size:16px;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gut)}
+.eyebrow{font-size:13px;font-weight:500;color:var(--ink-2);letter-spacing:0;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--red)}
+.btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 26px;border-radius:999px;border:1.5px solid var(--ink);font-weight:700;font-size:15px;cursor:pointer;background:none;transition:background .25s,color .25s,border-color .25s,transform .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn--red{background:var(--red);border-color:var(--red);color:#fff}
+.btn--red:hover{background:var(--red-ink);border-color:var(--red-ink)}
+.btn svg{width:18px;height:18px}
+
+/* ستاره‌ی هشت‌پر (شمسه/خاتم) — نشانه‌ی ایرانی، فقط به‌عنوان نشانگر مرحله */
+.star{width:14px;height:14px;flex:0 0 auto;fill:currentColor}
+
+/* ---------- Header ---------- */
+.hdr{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,box-shadow .3s}
+.hdr.is-solid{background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:18px}
+.logo img{width:40px;height:40px;border-radius:50%}
+.nav{display:flex;gap:28px;font-size:14px;font-weight:500;color:var(--ink-2)}
+.nav a:hover{color:var(--ink)}
+.hdr .btn{height:42px;padding:0 18px;font-size:14px}
+
+/* ---------- Hero (scroll story) ---------- */
+.hero{position:relative;height:330vh;overflow:clip}
+.stage{position:sticky;top:0;height:100vh;height:100svh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:clamp(24px,5vw,80px);max-width:var(--max);margin-inline:auto;padding:88px var(--gut) 40px}
+.hero__copy{position:relative;z-index:2}
+.hero h1{font-family:LahzehX,Lahzeh,sans-serif;font-weight:900;font-size:clamp(30px,4vw,58px);line-height:1.3;margin:18px 0 22px}
+.hero h1 em{font-style:normal;color:var(--red)}
+.captions{position:relative;min-height:110px;max-width:440px}
+.cap{position:absolute;inset:0 0 auto;opacity:0;transform:translateY(14px);transition:opacity .45s,transform .45s;color:var(--ink-2);font-size:clamp(15px,1.3vw,18px)}
+.cap b{color:var(--ink);font-weight:700}
+.cap.is-on{opacity:1;transform:none}
+.steps{display:flex;gap:22px;margin:26px 0 30px;font-size:13px;font-weight:500;color:var(--ink-2)}
+.steps li{list-style:none;display:flex;align-items:center;gap:8px;transition:color .3s}
+.steps li .star{color:var(--line);transition:color .3s,transform .4s}
+.steps li.is-on{color:var(--ink)}
+.steps li.is-on .star{color:var(--red);transform:rotate(45deg)}
+.hero__cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero__cta .btn--red{box-shadow:0 0 0 0 rgba(225,37,27,.4)}
+.hero.is-end .hero__cta .btn--red{animation:pulse 1.8s ease-out 1}
+@keyframes pulse{to{box-shadow:0 0 0 18px rgba(225,37,27,0)}}
+
+.visual{position:relative;height:min(74vh,640px);display:grid;place-items:center}
+.arch{position:relative;width:min(100%,400px);aspect-ratio:3/4.3;clip-path:url(#archClip);background:var(--paper-2)}
+.arch img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity .7s,transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.arch img.is-on{opacity:1;transform:scale(1)}
+.arch-line{position:absolute;width:min(100%,400px);aspect-ratio:3/4.3;pointer-events:none}
+.arch-line path{fill:none;stroke:var(--ink);stroke-width:1.2;vector-effect:non-scaling-stroke}
+.overlay{position:absolute;inset:0;pointer-events:none}
+.overlay svg{width:100%;height:100%;overflow:visible}
+.draw{fill:none;stroke-linecap:round}
+/* ترازوی وزن */
+.scale-wrap{position:absolute;inset-inline-start:-8%;bottom:8%;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px 16px;min-width:190px;opacity:0;transform:translateY(16px);transition:opacity .4s,transform .4s;box-shadow:0 18px 40px -24px rgba(0,0,0,.35)}
+.scale-wrap.is-on{opacity:1;transform:none}
+.scale-wrap small{display:block;font-size:12px;color:var(--ink-2)}
+.scale-wrap strong{font-size:26px;font-weight:900}
+.scale-wrap strong span{font-size:13px;font-weight:500;color:var(--ink-2);margin-inline-start:4px}
+.scale-bar{height:6px;border-radius:9px;background:var(--paper-2);margin-top:8px;position:relative;overflow:hidden}
+.scale-bar i{position:absolute;inset-block:0;inset-inline-start:0;background:var(--ink);border-radius:9px;width:0}
+.scale-bar b{position:absolute;inset-block:-3px;width:2px;background:var(--red)}
+/* نقشه‌ی کف */
+.plan-tag{position:absolute;inset-inline-end:-6%;top:12%;background:var(--ink);color:var(--paper);border-radius:12px;padding:10px 14px;font-size:13px;line-height:1.6;opacity:0;transform:translateY(-12px);transition:opacity .4s,transform .4s}
+.plan-tag.is-on{opacity:1;transform:none}
+.plan-tag b{color:#fff;font-size:16px}
+.scroll-hint{position:absolute;bottom:22px;inset-inline-start:50%;transform:translateX(50%);font-size:12px;color:var(--ink-2);display:flex;flex-direction:column;align-items:center;gap:6px;transition:opacity .3s}
+.scroll-hint i{width:1.5px;height:34px;background:linear-gradient(var(--ink),transparent);animation:hint 1.6s infinite}
+@keyframes hint{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.hero.is-moved .scroll-hint{opacity:0}
+
+/* ---------- Finder ---------- */
+section{scroll-margin-top:84px}
+.finder{padding:clamp(72px,10vw,140px) 0}
+.sec-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:48px}
+.sec-head h2{font-weight:900;font-size:clamp(26px,3.4vw,46px);line-height:1.35;margin-top:12px}
+.sec-head p{color:var(--ink-2);max-width:460px}
+.finder__grid{display:grid;grid-template-columns:380px 1fr;gap:28px;align-items:start}
+.panel{background:#fff;border-radius:var(--r);padding:28px;position:sticky;top:96px;box-shadow:0 1px 0 var(--line),0 30px 60px -40px rgba(0,0,0,.25)}
+.q{padding-bottom:22px;margin-bottom:22px;border-bottom:1px solid var(--paper-2)}
+.q:last-of-type{border:0;margin:0;padding:0}
+.q__t{display:flex;justify-content:space-between;align-items:baseline;font-weight:700;font-size:15px;margin-bottom:12px}
+.q__t output{font-size:22px;font-weight:900}
+.q__t output small{font-size:12px;font-weight:500;color:var(--ink-2);margin-inline-start:3px}
+.q__h{font-size:12.5px;color:var(--ink-2);margin-top:6px;line-height:1.7}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;background:var(--paper);padding:5px;border-radius:12px}
+.seg label{position:relative;cursor:pointer}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg span{display:block;text-align:center;padding:9px 4px;border-radius:9px;font-size:13.5px;font-weight:500;transition:background .2s,color .2s}
+.seg input:checked+span{background:var(--ink);color:#fff}
+.seg input:focus-visible+span{outline:2px solid var(--red);outline-offset:2px}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:28px;background:none;cursor:pointer;direction:rtl}
+input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:9px;background:linear-gradient(to left,var(--ink) var(--p,50%),var(--paper-2) var(--p,50%))}
+input[type=range]::-moz-range-track{height:4px;border-radius:9px;background:var(--paper-2)}
+input[type=range]::-moz-range-progress{height:4px;border-radius:9px;background:var(--ink)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#fff;border:2px solid var(--ink);margin-top:-9px;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:#fff;border:2px solid var(--ink)}
+.room{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.room-viz{margin-top:14px;background:var(--paper);border-radius:12px;height:120px;display:grid;place-items:center;position:relative}
+.room-viz .rm{border:1.5px dashed var(--ink-2);border-radius:4px;position:relative;transition:width .25s,height .25s;display:grid;place-items:center}
+.room-viz .dv{background:var(--red);opacity:.85;border-radius:3px;transition:width .25s,height .25s}
+.room-viz .lbl{position:absolute;bottom:6px;inset-inline-start:10px;font-size:11px;color:var(--ink-2)}
+
+.results{display:grid;gap:16px}
+.res-meta{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--ink-2);margin-bottom:4px}
+.res-meta b{color:var(--ink)}
+.card{display:grid;grid-template-columns:170px 1fr auto;gap:22px;align-items:center;background:#fff;border-radius:var(--r);padding:14px;padding-inline-end:24px;box-shadow:0 1px 0 var(--line);transition:opacity .35s,transform .35s,box-shadow .25s}
+.card:hover{box-shadow:0 1px 0 var(--line),0 24px 50px -30px rgba(0,0,0,.3)}
+.card.is-out{opacity:.45}
+.card.is-best{box-shadow:0 0 0 2px var(--red),0 24px 50px -30px rgba(225,37,27,.45)}
+.card__img{aspect-ratio:1;border-radius:12px;overflow:hidden;background:var(--paper-2)}
+.card__img img{width:100%;height:100%;object-fit:cover}
+.card h3{font-size:18px;font-weight:700;line-height:1.5}
+.best-tag{display:inline-block;background:var(--red);color:#fff;font-size:11.5px;font-weight:700;border-radius:99px;padding:2px 10px;margin-bottom:6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 8px}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:500;padding:4px 10px;border-radius:99px;background:var(--paper)}
+.chip::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.chip.ok{color:var(--ok)} .chip.warn{color:var(--warn)} .chip.no{color:var(--red-ink)}
+.chip span{color:var(--ink)}
+.card__why{font-size:13px;color:var(--ink-2);line-height:1.7}
+.card__side{display:flex;flex-direction:column;align-items:flex-end;gap:10px;min-width:150px}
+.price{font-weight:900;font-size:19px;white-space:nowrap}
+.price small{font-size:12px;font-weight:500;color:var(--ink-2)}
+.price-note{font-size:11px;color:var(--ink-2);margin-top:-8px}
+.card__act{display:flex;gap:8px}
+.mini{height:38px;padding:0 14px;border-radius:99px;border:1.5px solid var(--line);background:none;font-size:13px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:border-color .2s,background .2s,color .2s}
+.mini:hover{border-color:var(--ink)}
+.mini[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.mini--red{border-color:var(--red);color:var(--red-ink)}
+.mini--red:hover{background:var(--red);color:#fff}
+
+/* نوار مقایسه */
+.cmpbar{position:fixed;inset-inline:0;bottom:16px;z-index:40;display:flex;justify-content:center;pointer-events:none;transform:translateY(140%);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.cmpbar.is-on{transform:none}
+.cmpbar>div{pointer-events:auto;background:var(--ink);color:#fff;border-radius:99px;padding:8px 8px 8px 8px;padding-inline-start:22px;display:flex;align-items:center;gap:16px;box-shadow:0 20px 50px -20px rgba(0,0,0,.5);font-size:14px;max-width:calc(100% - 32px)}
+.cmpbar .btn{height:44px;border:0}
+.cmpbar .btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+
+/* دیالوگ‌ها */
+dialog{border:0;border-radius:24px;padding:0;width:min(860px,calc(100% - 24px));max-height:calc(100vh - 32px);background:var(--paper);color:var(--ink);margin:auto;box-shadow:0 40px 100px -30px rgba(0,0,0,.5)}
+dialog::backdrop{background:rgba(20,20,20,.45);backdrop-filter:blur(4px)}
+.dlg__h{display:flex;justify-content:space-between;align-items:center;padding:22px 28px;border-bottom:1px solid var(--line)}
+.dlg__h h2{font-size:20px;font-weight:900}
+.x{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:none;cursor:pointer;font-size:20px;line-height:1}
+.dlg__b{padding:24px 28px 28px;overflow:auto}
+.cmp{width:100%;border-collapse:collapse;font-size:14px}
+.cmp th,.cmp td{padding:12px 10px;text-align:start;border-bottom:1px solid var(--line);vertical-align:middle}
+.cmp thead td{border:0;padding-bottom:16px}
+.cmp thead img{width:100%;max-width:220px;aspect-ratio:4/3;object-fit:cover;border-radius:12px;margin-bottom:10px}
+.cmp thead h3{font-size:16px;font-weight:700}
+.cmp th{font-weight:500;color:var(--ink-2);width:26%}
+.cmp td{font-weight:700;width:37%}
+.cmp .win{color:var(--ok)}
+.cmp .win::after{content:" ✓";font-weight:900}
+
+.inst{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.inst__prod{display:flex;gap:14px;align-items:center;margin-bottom:22px}
+.inst__prod img{width:72px;height:72px;border-radius:12px;object-fit:cover}
+.inst__prod h3{font-size:16px;font-weight:700;line-height:1.5}
+.months{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.sum{background:var(--ink);color:#fff;border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:14px}
+.sum .big{font-size:clamp(28px,4vw,38px);font-weight:900;line-height:1.2}
+.sum .big small{font-size:14px;font-weight:500;opacity:.7;margin-inline-start:6px}
+.sum dl{display:grid;grid-template-columns:1fr auto;gap:8px 12px;font-size:14px;border-top:1px solid rgba(255,255,255,.15);padding-top:14px}
+.sum dt{opacity:.7}
+.sum dd{font-weight:700}
+.sum .btn{margin-top:auto;justify-content:center}
+.fine{font-size:12px;color:var(--ink-2);margin-top:14px;line-height:1.7}
+
+/* ---------- Categories / Store ---------- */
+.cats{padding:0 0 clamp(72px,10vw,130px)}
+.cat-list{display:flex;flex-wrap:wrap;gap:10px}
+.cat-list a{border:1px solid var(--line);border-radius:99px;padding:10px 20px;font-size:15px;font-weight:500;transition:border-color .2s,background .2s}
+.cat-list a:hover{border-color:var(--ink);background:#fff}
+.store{background:var(--ink);color:var(--paper);padding:clamp(64px,9vw,120px) 0}
+.store__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:center}
+.store h2{font-size:clamp(26px,3.4vw,46px);font-weight:900;line-height:1.35;margin:12px 0 18px}
+.store p{color:#BDB6AA;max-width:440px;margin-bottom:28px}
+.store .eyebrow{color:#BDB6AA}
+.store .btn{border-color:var(--paper);color:var(--paper)}
+.store .btn--red{border-color:var(--red);color:#fff}
+.store__img{border-radius:var(--r);overflow:hidden;aspect-ratio:5/4}
+.store__img img{width:100%;height:100%;object-fit:cover}
+.ftr{background:var(--ink);color:#8C857A;font-size:13px;padding:28px 0;border-top:1px solid #2a2a2a}
+.ftr .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* reveal ساده — threshold 0 و ≤۰.۷s (درس 2026-10-26) */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .6s,transform .6s}
+.rv.is-in{opacity:1;transform:none}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1024px){
+  .nav{display:none}
+  .finder__grid{grid-template-columns:1fr}
+  .panel{position:static}
+  .sec-head{grid-template-columns:1fr;gap:12px}
+  .stage{grid-template-columns:1fr 1fr}
+}
+@media (max-width:767px){
+  body{font-size:15px}
+  .hdr .wrap{height:62px}
+  .hdr .btn span{display:none}
+  .hdr .btn{width:42px;padding:0;justify-content:center}
+  .stage{grid-template-columns:1fr;grid-template-rows:auto 1fr;align-content:start;gap:8px;padding-top:76px;padding-bottom:16px}
+  .hero h1{font-size:28px;margin:10px 0 8px}
+  .captions{min-height:78px;font-size:14px}
+  .cap{font-size:14px}
+  .steps{margin:8px 0 12px;gap:14px;font-size:12px}
+  .hero__cta .btn{height:46px;padding:0 20px;font-size:14px}
+  .hero__cta .btn:not(.btn--red){display:none}
+  .visual{height:auto;min-height:0;align-self:stretch}
+  .arch,.arch-line{width:auto;height:100%;max-height:44svh}
+  .scale-wrap{inset-inline-start:2%;bottom:4%;min-width:150px;padding:8px 12px}
+  .scale-wrap strong{font-size:20px}
+  .plan-tag{inset-inline-end:2%;top:4%;font-size:12px}
+  .scroll-hint{display:none}
+  .sec-head h2{font-size:24px}
+  .panel{padding:20px}
+  .card{grid-template-columns:96px 1fr;gap:14px;padding:12px}
+  .card h3{font-size:15.5px}
+  .card__side{grid-column:1/-1;flex-direction:row;justify-content:space-between;align-items:center;min-width:0;border-top:1px solid var(--paper-2);padding-top:12px}
+  .price{font-size:16px}
+  .price-note{display:none}
+  .card__why{font-size:12.5px}
+  .inst{grid-template-columns:1fr}
+  .dlg__h,.dlg__b{padding-inline:18px}
+  .cmp{font-size:13px}
+  .cmp th{width:30%}
+  .store__grid{grid-template-columns:1fr}
+  .store h2{font-size:24px}
+  .cmpbar>div{gap:10px;font-size:13px;padding-inline-start:16px}
+}
+/* viewport کوتاه یا کاهش حرکت: pin خاموش، حالت نهایی نمایش داده می‌شود */
+@media (max-height:560px),(prefers-reduced-motion:reduce){
+  .hero{height:auto}
+  .stage{position:relative;height:auto;min-height:100svh}
+  .rv{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- طاق جناغی ایرانی؛ قاب اصلی تصویر -->
+    <clipPath id="archClip" clipPathUnits="objectBoundingBox">
+      <path d="M0,1 L0,.40 C0,.19 .26,.07 .5,0 C.74,.07 1,.19 1,.40 L1,1 Z"/>
+    </clipPath>
+    <symbol id="star" viewBox="0 0 24 24"><path d="M12 0l3.5 3.5H20.5v5L24 12l-3.5 3.5v5h-5L12 24l-3.5-3.5h-5v-5L0 12l3.5-3.5v-5h5z"/></symbol>
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M19 12H5m6-6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="ایرانیان، صفحه‌ی اصلی"><img src="img/logo.webp" alt="لوگوی فروشگاه ورزشی ایرانیان" width="40" height="40">ایرانیان</a>
+    <nav class="nav" aria-label="منوی اصلی">
+      <a href="#finder">راهنمای انتخاب</a>
+      <a href="#cats">دسته‌ها</a>
+      <a href="#store">فروشگاه ساری</a>
+    </nav>
+    <a class="btn" href="https://t.me/iraniansportshop1" target="_blank" rel="noopener" aria-label="مشاوره در تلگرام"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 4L3 11l6 2 2 6 3-4 5 4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span>مشاوره‌ی رایگان</span></a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- ===== HERO: داستان اسکرولی سه‌مرحله‌ای ===== -->
+  <section class="hero" id="hero" aria-label="معرفی راهنمای انتخاب دستگاه">
+    <div class="stage">
+      <div class="hero__copy">
+        <p class="eyebrow">تردمیل یا دوچرخه؟ کدام مدل؟</p>
+        <h1>دستگاهِ درست،<br>به <em>اندازه‌ی</em> خانه‌ی تو.</h1>
+        <div class="captions" aria-live="polite">
+          <p class="cap is-on" data-i="0">مدل‌ها زیادند و شبیه هم. ما انتخاب را <b>به دو سؤال</b> کوتاه کرده‌ایم.</p>
+          <p class="cap" data-i="1">سؤال اول: <b>وزنت چقدر است؟</b> هر دستگاه سقف تحمل دارد و ما با ۱۵٪ حاشیه‌ی امن حساب می‌کنیم.</p>
+          <p class="cap" data-i="2">سؤال دوم: <b>چقدر جا داری؟</b> ردپای دستگاه به‌علاوه‌ی فضای امن پشت و کنارش.</p>
+        </div>
+        <ol class="steps" aria-label="مراحل">
+          <li class="is-on" data-s="0"><svg class="star"><use href="#star"/></svg>مدل‌ها</li>
+          <li data-s="1"><svg class="star"><use href="#star"/></svg>وزن</li>
+          <li data-s="2"><svg class="star"><use href="#star"/></svg>فضا</li>
+        </ol>
+        <div class="hero__cta">
+          <a class="btn btn--red" href="#finder">دستگاهم را پیدا کن <svg aria-hidden="true"><use href="#arrow"/></svg></a>
+          <a class="btn" href="#store">دیدن حضوری در ساری</a>
+        </div>
+      </div>
+
+      <div class="visual" aria-hidden="true">
+        <div class="arch">
+          <img class="is-on" src="img/treadmill.webp" alt="" >
+          <img src="img/fw6800.webp" alt="">
+          <img src="img/elliptical.webp" alt="">
+        </div>
+        <svg class="arch-line" viewBox="0 0 300 430" preserveAspectRatio="none"><path d="M0,430 L0,172 C0,82 78,30 150,0 C222,30 300,82 300,172 L300,430" style="transform:translate(-10px,10px)"/></svg>
+        <div class="overlay">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+            <!-- مستطیل نقشه‌ی کف که در مرحله‌ی ۳ کشیده می‌شود -->
+            <rect class="draw" id="planRect" x="6" y="4" width="88" height="94" rx="1" stroke="#E1251B" stroke-width=".5" stroke-dasharray="4 2" vector-effect="non-scaling-stroke" pathLength="100" style="stroke-dasharray:100;stroke-dashoffset:100"/>
+          </svg>
+        </div>
+        <div class="scale-wrap" id="scaleCard">
+          <small>وزن تو</small>
+          <strong id="kgNum">۰<span>کیلو</span></strong>
+          <div class="scale-bar"><i id="kgBar"></i><b style="inset-inline-start:72%"></b></div>
+          <small style="margin-top:6px">خط قرمز: سقف تحمل دستگاه</small>
+        </div>
+        <div class="plan-tag" id="planTag">جای خالی خانه<br><b>۲۶۰ × ۱۳۰</b> سانتی‌متر</div>
+      </div>
+      <div class="scroll-hint"><span>اسکرول کن</span><i></i></div>
+    </div>
+  </section>
+
+  <!-- ===== FINDER ===== -->
+  <section class="finder" id="finder" aria-labelledby="finder-h">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div>
+          <p class="eyebrow">کدام دستگاه برای من؟</p>
+          <h2 id="finder-h">راهنمای انتخاب دستگاه</h2>
+        </div>
+        <p>وزن و اندازه‌ی جایی را که داری وارد کن. دستگاه‌هایی که برایت مناسب‌اند بالا می‌آیند. دو مدل را کنار هم بگذار و قسطش را همین‌جا حساب کن.</p>
+      </div>
+
+      <div class="finder__grid">
+        <form class="panel rv" id="fForm" onsubmit="return false" aria-label="مشخصات تو">
+          <div class="q">
+            <div class="q__t">چه دستگاهی؟</div>
+            <div class="seg" role="radiogroup">
+              <label><input type="radio" name="type" value="all" checked><span>همه</span></label>
+              <label><input type="radio" name="type" value="treadmill"><span>تردمیل</span></label>
+              <label><input type="radio" name="type" value="bike"><span>دوچرخه</span></label>
+            </div>
+            <p class="q__h">الپتیکال در «همه» نمایش داده می‌شود.</p>
+          </div>
+          <div class="q">
+            <label class="q__t" for="w">وزن تو <output id="wOut">۸۵<small>کیلو</small></output></label>
+            <input type="range" id="w" min="40" max="180" step="1" value="85">
+          </div>
+          <div class="q">
+            <div class="q__t">جای خالی خانه</div>
+            <div class="room">
+              <div><label class="q__t" for="rl" style="font-size:13px;margin:0">طول <output id="rlOut">۲۶۰<small>سانت</small></output></label><input type="range" id="rl" min="100" max="400" step="10" value="260"></div>
+              <div><label class="q__t" for="rw" style="font-size:13px;margin:0">عرض <output id="rwOut">۱۳۰<small>سانت</small></output></label><input type="range" id="rw" min="50" max="300" step="10" value="130"></div>
+            </div>
+            <div class="room-viz" aria-hidden="true"><div class="rm" id="rm"><div class="dv" id="dv"></div></div><span class="lbl">قرمز: ردپای بهترین گزینه</span></div>
+            <p class="q__h">متر بیاور! فضای امن هم حساب می‌شود: تردمیل ۶۰ سانت پشت، بقیه ۳۰ سانت دور.</p>
+          </div>
+        </form>
+
+        <div>
+          <div class="res-meta" aria-live="polite"><span id="resCount"></span><span>مرتب‌شده بر اساس تناسب</span></div>
+          <div class="results" id="results"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CATEGORIES ===== -->
+  <section class="cats" id="cats" aria-labelledby="cats-h">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div><p class="eyebrow">دنبال چیز دیگری هستی؟</p><h2 id="cats-h">همه‌ی رشته‌ها، یک فروشگاه</h2></div>
+        <p>از توپ و کیف تا دمبل و میز پرس؛ همه را حضوری ببین یا آنلاین سفارش بده.</p>
+      </div>
+      <div class="cat-list rv">
+        <a href="#">وسایل کاردیو</a><a href="#">تجهیزات بدنسازی</a><a href="#">میز پرس چندکاره</a><a href="#">دمبل و هالتر</a><a href="#">مت یوگا و پیلاتس</a><a href="#">بوکس</a><a href="#">توپ فوتبال، والیبال و بسکتبال</a><a href="#">پوشاک ورزشی</a><a href="#">ساک و کوله</a><a href="#">شیکر و قمقمه</a><a href="#">شنا</a><a href="#">وسایل بادی اینتکس</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STORE ===== -->
+  <section class="store" id="store" aria-labelledby="store-h">
+    <div class="wrap store__grid">
+      <div class="rv">
+        <p class="eyebrow">می‌خواهی امتحانش کنی؟</p>
+        <h2 id="store-h">بیا ساری، رویش راه برو.</h2>
+        <p>نتیجه‌ی راهنما را نشان فروشنده بده تا همان دستگاه‌ها را آماده کند. ارسال به همه‌ی شهرها، ضمانت کالا و بازگشت وجه.</p>
+        <div class="hero__cta">
+          <a class="btn btn--red" href="https://t.me/iraniansportshop1" target="_blank" rel="noopener">پرسیدن در تلگرام</a>
+          <a class="btn" href="https://www.instagram.com/iranian_sportshop/" target="_blank" rel="noopener">اینستاگرام</a>
+        </div>
+      </div>
+      <div class="store__img rv"><img src="img/store.webp" alt="ردیف تردمیل‌ها و دستگاه‌های کاردیو در فروشگاه ایرانیان ساری" loading="lazy" width="900" height="719"></div>
+    </div>
+  </section>
+</main>
+<footer class="ftr"><div class="wrap"><span>© فروشگاه لوازم ورزشی ایرانیان، ساری</span><span>پیش‌نمایش طراحی؛ مشخصات و قیمت‌ها نمونه‌اند</span></div></footer>
+
+<!-- نوار مقایسه -->
+<div class="cmpbar" id="cmpbar"><div><span id="cmpTxt">۱ از ۲ انتخاب شد</span><button class="btn btn--red" id="cmpGo" disabled>مقایسه کن</button></div></div>
+
+<dialog id="dlgCmp" aria-labelledby="cmp-h"><div class="dlg__h"><h2 id="cmp-h">مقایسه‌ی کنار هم</h2><button class="x" data-close aria-label="بستن">×</button></div><div class="dlg__b" id="cmpBody"></div></dialog>
+<dialog id="dlgInst" aria-labelledby="inst-h"><div class="dlg__h"><h2 id="inst-h">محاسبه‌ی قسط</h2><button class="x" data-close aria-label="بستن">×</button></div><div class="dlg__b" id="instBody"></div></dialog>
+
+<script>
+/* داده‌ها از پست‌های اینستاگرام ایرانیان. فیلدهای sample:true تخمینی‌اند و در ووکامرس از ویژگی‌های محصول خوانده می‌شوند. */
+const P=[
+ {id:'walkpad',type:'treadmill',name:'واکینگ پد فدرال',img:'img/walkpad.webp',alt:'جعبه‌ی واکینگ پد فدرال در فروشگاه ایرانیان',maxW:110,L:140,W:60,use:'پیاده‌روی',noise:'خیلی کم‌صدا',fold:'تاشو، زیر تخت جا می‌شود',warranty:'—',price:22000000,sample:true},
+ {id:'zeus',type:'treadmill',name:'تردمیل زئوس',img:'img/treadmill.webp',alt:'پیاده‌روی روی تردمیل زئوس',maxW:130,L:175,W:75,use:'پیاده‌روی و دویدن',noise:'موتور کم‌صدا',fold:'تاشو',warranty:'—',price:48000000,sample:true},
+ {id:'fw6800',type:'bike',name:'اسپینینگ فرش‌وی FW6800',img:'img/fw6800.webp',alt:'دوچرخه اسپینینگ فرش‌وی FW6800',maxW:150,L:115,W:55,use:'اسپینینگ حرفه‌ای',noise:'بی‌صدا',fold:'—',warranty:'—',price:31000000,sample:true},
+ {id:'powermax',type:'bike',name:'اسپینینگ پاورمکس BC4713',img:'img/powermax.webp',alt:'دوچرخه اسپینینگ پاورمکس مدل BC4713',maxW:180,L:120,W:55,use:'اسپینینگ، دیسک ۲۰ کیلو',noise:'بی‌صدا',fold:'چرخ حمل',warranty:'۱۲ ماه + ۱۰ سال خدمات',price:39700000,sample:false},
+ {id:'azimuth',type:'elliptical',name:'الپتیکال آزیموت AZ-E21',img:'img/elliptical.webp',alt:'اسکی فضایی آزیموت AZ-E21 در فروشگاه',maxW:150,L:160,W:70,use:'کل بدن، ۳۲ سطح مگنت',noise:'بی‌صدا',fold:'—',warranty:'۱۵ ماه + ۵ سال خدمات',price:55000000,sample:true},
+];
+const TYPE={treadmill:'تردمیل',bike:'دوچرخه',elliptical:'الپتیکال'};
+const fa=n=>Number(n).toLocaleString('fa-IR');
+const toman=n=>fa(Math.round(n/1000)*1000);
+const $=s=>document.querySelector(s);
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+/* ---------- Header ---------- */
+const hdr=$('#hdr');
+/* ---------- Hero scroll story ---------- */
+const hero=$('#hero'),caps=[...document.querySelectorAll('.cap')],steps=[...document.querySelectorAll('.steps li')],
+      imgs=[...document.querySelectorAll('.arch img')],scaleCard=$('#scaleCard'),planTag=$('#planTag'),planRect=$('#planRect'),
+      kgNum=$('#kgNum'),kgBar=$('#kgBar');
+let phase=-1;
+function heroTick(){
+  const y=scrollY; hdr.classList.toggle('is-solid',y>40);
+  const r=hero.getBoundingClientRect(),run=hero.offsetHeight-innerHeight;
+  if(run<=0){setPhase(2);fillKg(1);planRect.style.strokeDashoffset=0;return}
+  /* ۶٪ مکث در دو سر (درس 2026-09-28) */
+  let p=Math.min(1,Math.max(0,-r.top/run)); p=Math.min(1,Math.max(0,(p-.06)/.88));
+  hero.classList.toggle('is-moved',p>.02);
+  setPhase(p<.30?0:p<.64?1:2);
+  fillKg(Math.min(1,Math.max(0,(p-.30)/.25)));
+  planRect.style.strokeDashoffset=100-100*Math.min(1,Math.max(0,(p-.64)/.26));
+  hero.classList.toggle('is-end',p>.95);
+}
+function fillKg(t){kgNum.firstChild.nodeValue=fa(Math.round(85*t));kgBar.style.width=(60*t)+'%'}
+function setPhase(i){
+  if(i===phase)return; phase=i;
+  caps.forEach((c,k)=>c.classList.toggle('is-on',k===i));
+  steps.forEach((s,k)=>s.classList.toggle('is-on',k<=i));
+  imgs.forEach((m,k)=>m.classList.toggle('is-on',k===i));
+  scaleCard.classList.toggle('is-on',i>=1);
+  planTag.classList.toggle('is-on',i>=2);
+}
+let ticking=false;
+addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(()=>{heroTick();ticking=false})}},{passive:true});
+addEventListener('resize',heroTick);
+if(reduce||matchMedia('(max-height:560px)').matches){setPhase(2);fillKg(1);planRect.style.strokeDashoffset=0}else heroTick();
+
+/* ---------- Reveal ---------- */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target)}}),{threshold:0,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* ---------- Finder ---------- */
+const w=$('#w'),rl=$('#rl'),rw=$('#rw'),form=$('#fForm'),list=$('#results');
+const cmp=new Set();
+function need(p){const back=p.type==='treadmill'?60:30;return{L:p.L+back+30,W:p.W+60}}
+function judge(p,kg,L,W){
+  const wOk=p.maxW>=kg*1.15?'ok':p.maxW>=kg?'warn':'no';
+  const n=need(p);
+  const sOk=(n.L<=L&&n.W<=W)||(n.L<=W&&n.W<=L)?'ok':(p.L<=L&&p.W<=W)||(p.L<=W&&p.W<=L)?'warn':'no';
+  const score={ok:2,warn:1,no:-3};
+  return{wOk,sOk,n,score:score[wOk]+score[sOk]};
+}
+function why(p,j,kg){
+  if(j.wOk==='no')return `سقف تحمل ${fa(p.maxW)} کیلو است؛ برای وزن ${fa(kg)} کیلو ایمن نیست.`;
+  if(j.sOk==='no')return `به ${fa(j.n.L)} × ${fa(j.n.W)} سانت جا نیاز دارد (با فضای امن).`;
+  if(j.wOk==='warn')return `جا می‌شود، ولی حاشیه‌ی وزن کم است. مدل قوی‌تر عمر بیشتری دارد.`;
+  if(j.sOk==='warn')return `خود دستگاه جا می‌شود، ولی فضای امن دورش کم است.`;
+  return `با ${fa(p.maxW-kg)} کیلو حاشیه‌ی وزن و فضای امن کامل، مناسب توست.`;
+}
+function render(){
+  const kg=+w.value,L=+rl.value,W=+rw.value,t=form.type.value;
+  [[w,'#wOut','کیلو'],[rl,'#rlOut','سانت'],[rw,'#rwOut','سانت']].forEach(([el,o,u])=>{
+    $(o).innerHTML=fa(el.value)+'<small>'+u+'</small>';
+    el.style.setProperty('--p',((el.value-el.min)/(el.max-el.min)*100)+'%');
+  });
+  const rows=P.filter(p=>t==='all'||p.type===t).map(p=>({p,j:judge(p,kg,L,W)})).sort((a,b)=>b.j.score-a.j.score||a.p.price-b.p.price);
+  const good=rows.filter(r=>r.j.score>=4).length;
+  $('#resCount').innerHTML=good?`<b>${fa(good)} دستگاه</b> کاملاً مناسب توست`:'<b>هیچ‌کدام کاملاً مناسب نیست</b>؛ گزینه‌های نزدیک را ببین';
+  const lab={ok:'مناسب',warn:'مرزی',no:'نامناسب'};
+  list.innerHTML=rows.map(({p,j},i)=>`
+    <article class="card ${i===0&&j.score>=4?'is-best':''} ${j.score<0?'is-out':''}">
+      <div class="card__img"><img src="${p.img}" alt="${p.alt}" loading="lazy"></div>
+      <div>
+        ${i===0&&j.score>=4?'<span class="best-tag">بهترین گزینه برای تو</span>':''}
+        <h3>${p.name}</h3>
+        <div class="chips">
+          <span class="chip ${j.wOk}"><span>وزن: ${lab[j.wOk]}</span></span>
+          <span class="chip ${j.sOk}"><span>فضا: ${lab[j.sOk]}</span></span>
+          <span class="chip" style="color:var(--ink-2)"><span>${TYPE[p.type]} · ${p.use}</span></span>
+        </div>
+        <p class="card__why">${why(p,j,kg)}</p>
+      </div>
+      <div class="card__side">
+        <div class="price">${toman(p.price)} <small>تومان</small></div>
+        ${p.sample?'<div class="price-note">قیمت نمونه</div>':''}
+        <div class="card__act">
+          <button class="mini" type="button" data-cmp="${p.id}" aria-pressed="${cmp.has(p.id)}">مقایسه</button>
+          <button class="mini mini--red" type="button" data-inst="${p.id}">قسط</button>
+        </div>
+      </div>
+    </article>`).join('');
+  /* نمای کف: اتاق و ردپای بهترین گزینه */
+  const s=Math.min(200/L,96/W)*.9,best=rows[0].p;
+  Object.assign($('#rm').style,{width:L*s+'px',height:W*s+'px'});
+  Object.assign($('#dv').style,{width:Math.min(best.L,L)*s+'px',height:Math.min(best.W,W)*s+'px'});
+}
+form.addEventListener('input',render);
+list.addEventListener('click',e=>{
+  const c=e.target.closest('[data-cmp]'),q=e.target.closest('[data-inst]');
+  if(c){const id=c.dataset.cmp;
+    if(cmp.has(id))cmp.delete(id);else{if(cmp.size>=2)cmp.delete([...cmp][0]);cmp.add(id)}
+    render();updBar()}
+  if(q)openInst(q.dataset.inst);
+});
+function updBar(){
+  $('#cmpbar').classList.toggle('is-on',cmp.size>0);
+  $('#cmpTxt').textContent=cmp.size===2?'۲ دستگاه آماده‌ی مقایسه':'۱ از ۲ انتخاب شد. یکی دیگر انتخاب کن';
+  $('#cmpGo').disabled=cmp.size<2;
+}
+$('#cmpGo').addEventListener('click',()=>{
+  const [a,b]=[...cmp].map(id=>P.find(p=>p.id===id)),kg=+w.value,L=+rl.value,W=+rw.value;
+  const ja=judge(a,kg,L,W),jb=judge(b,kg,L,W);
+  const row=(t,va,vb,better)=>`<tr><th>${t}</th><td class="${better===1?'win':''}">${va}</td><td class="${better===2?'win':''}">${vb}</td></tr>`;
+  const hi=(x,y)=>x>y?1:y>x?2:0, lo=(x,y)=>x<y?1:y<x?2:0, lab={ok:'مناسب',warn:'مرزی',no:'نامناسب'};
+  $('#cmpBody').innerHTML=`<table class="cmp"><thead><tr><td></td>${[a,b].map(p=>`<td><img src="${p.img}" alt="${p.alt}"><h3>${p.name}</h3></td>`).join('')}</tr></thead><tbody>
+    ${row('برای وزن تو',lab[ja.wOk],lab[jb.wOk],hi(a.maxW,b.maxW))}
+    ${row('برای جای تو',lab[ja.sOk],lab[jb.sOk],hi(-ja.n.L*ja.n.W,-jb.n.L*jb.n.W))}
+    ${row('سقف تحمل وزن',fa(a.maxW)+' کیلو',fa(b.maxW)+' کیلو',hi(a.maxW,b.maxW))}
+    ${row('ابعاد دستگاه',fa(a.L)+' × '+fa(a.W),fa(b.L)+' × '+fa(b.W),lo(a.L*a.W,b.L*b.W))}
+    ${row('کاربرد',a.use,b.use,0)}
+    ${row('صدا',a.noise,b.noise,0)}
+    ${row('جمع‌شدن',a.fold,b.fold,0)}
+    ${row('گارانتی',a.warranty,b.warranty,0)}
+    ${row('قیمت',toman(a.price)+' تومان',toman(b.price)+' تومان',lo(a.price,b.price))}
+    <tr><th>قسط ماهانه (۱۲ ماه)</th><td>${toman(inst(a.price,.3,12).m)}</td><td>${toman(inst(b.price,.3,12).m)}</td></tr>
+  </tbody></table><p class="fine">تیک سبز یعنی آن دستگاه در این ردیف بهتر است. مشخصات تخمینی از پست‌های فروشگاه است و در نسخه‌ی نهایی از ووکامرس خوانده می‌شود.</p>`;
+  $('#dlgCmp').showModal();
+});
+
+/* ---------- قسط: پیش‌پرداخت + سود ماهانه‌ی ساده (نمونه) ---------- */
+const RATE=.025;
+function inst(price,pre,n){const d=price*pre,rest=price-d,total=rest*(1+RATE*n);return{d,m:total/n,total:d+total}}
+function openInst(id){
+  const p=P.find(x=>x.id===id);
+  $('#instBody').innerHTML=`<div class="inst"><div>
+      <div class="inst__prod"><img src="${p.img}" alt="${p.alt}"><div><h3>${p.name}</h3><div class="price">${toman(p.price)} <small>تومان</small></div></div></div>
+      <div class="q"><label class="q__t" for="pre">پیش‌پرداخت <output id="preOut"></output></label><input type="range" id="pre" min="20" max="60" step="5" value="30"></div>
+      <div class="q"><div class="q__t">تعداد قسط</div><div class="seg months" role="radiogroup">
+        ${[3,6,9,12].map(n=>`<label><input type="radio" name="mo" value="${n}" ${n===6?'checked':''}><span>${fa(n)} ماه</span></label>`).join('')}
+      </div></div>
+    </div>
+    <div class="sum"><span>قسط ماهانه</span><div class="big" id="iM"></div>
+      <dl><dt>پیش‌پرداخت</dt><dd id="iD"></dd><dt>جمع پرداخت</dt><dd id="iT"></dd></dl>
+      <a class="btn btn--red" href="https://t.me/iraniansportshop1" target="_blank" rel="noopener">رزرو با همین شرایط</a>
+    </div></div>
+    <p class="fine">نرخ نمونه: ${fa(RATE*100)}٪ در ماه روی مانده. شرایط واقعی اقساط را فروشگاه تعیین می‌کند.</p>`;
+  const b=$('#instBody'),calc=()=>{const pre=+b.querySelector('#pre').value,n=+b.querySelector('[name=mo]:checked').value,r=inst(p.price,pre/100,n);
+    b.querySelector('#pre').style.setProperty('--p',((pre-20)/40*100)+'%');
+    b.querySelector('#preOut').textContent=fa(pre)+'٪';
+    b.querySelector('#iM').innerHTML=toman(r.m)+'<small>تومان</small>';
+    b.querySelector('#iD').textContent=toman(r.d)+' تومان';b.querySelector('#iT').textContent=toman(r.total)+' تومان'};
+  b.addEventListener('input',calc);calc();
+  $('#dlgInst').showModal();
+}
+document.querySelectorAll('dialog').forEach(d=>{
+  d.addEventListener('click',e=>{if(e.target===d||e.target.closest('[data-close]'))d.close()});
+});
+render();
+</script>
+</body>
+</html>
